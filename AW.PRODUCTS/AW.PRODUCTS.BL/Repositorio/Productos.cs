@@ -17,12 +17,12 @@ namespace AW.PRODUCTS.BL.Repositorio
             return elResultado;
         }
 
-        //public IList<Product>ListarProductosPorColor(string elColor)
-        //{
-        //    var elRepositorio = new Repositorio.Productos();
-        //    var elResulatado = elRepositorio.ListarProductosPorColor (elColor);
-        //    return (elRepositorio);
-        //}
+        public IList<MODEL.V2.Product> ListarProductosPorColor2(string elColor)
+        {
+            var elRepositorio = new Repositorio.Productos();
+            var elResultado = elRepositorio.ListarProductosPorColor2(elColor);
+            return (elResultado);
+        }
 
     }
 }
