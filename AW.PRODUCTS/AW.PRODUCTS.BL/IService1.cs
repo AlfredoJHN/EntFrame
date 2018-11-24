@@ -21,13 +21,13 @@ namespace AW.PRODUCTS.BL
 
         // TODO: Add your service operations here
         [OperationContract]
-        IList<MODEL.Product> ListarProductosPorRangoDePrecio(decimal precioInferior, decimal precioSuperior);
+        IList<MODEL.V2.Product> ListarProductosPorRangoDePrecio(decimal precioInferior, decimal precioSuperior);
 
         [OperationContract]
-        IList<MODEL.Product> ListarProductosPorColor(string elColor);
+        IList<MODEL.V2.Product> ListarProductosPorColor(string elColor);
 
         [OperationContract]
-        IList<MODEL.Product> ListarProductosPorNombreDeCategoria(string laCategoria);
+        IList<MODEL.V2.Product> ListarProductosPorNombreDeCategoria(string laCategoria);
     }
 
 

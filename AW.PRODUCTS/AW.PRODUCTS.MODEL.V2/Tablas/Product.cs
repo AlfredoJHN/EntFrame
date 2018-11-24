@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AW.PRODUCTS.MODEL
+namespace AW.PRODUCTS.MODEL.V2
 {
     public partial class Product
     {

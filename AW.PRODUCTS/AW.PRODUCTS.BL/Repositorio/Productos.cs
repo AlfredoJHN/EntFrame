@@ -7,14 +7,22 @@ namespace AW.PRODUCTS.BL.Repositorio
 {
     internal class Productos
     {
-        private MODEL.AdventureWorks2016Entities _contexto =
-            new MODEL.AdventureWorks2016Entities();
+        private MODEL.V2.AdventureWorks2016Entities _contexto =
+            new MODEL.V2.AdventureWorks2016Entities();
 
-        public IList<MODEL.Product> ListarProductosPorColor(string
+        public IList<MODEL.V2.Product> ListarProductosPorColor(string
             elColor)
         {
             var elResultado = _contexto.Product.Where(p => p.Color.Contains(elColor)).ToList();
             return elResultado;
         }
+
+        //public IList<Product>ListarProductosPorColor(string elColor)
+        //{
+        //    var elRepositorio = new Repositorio.Productos();
+        //    var elResulatado = elRepositorio.ListarProductosPorColor (elColor);
+        //    return (elRepositorio);
+        //}
+
     }
 }

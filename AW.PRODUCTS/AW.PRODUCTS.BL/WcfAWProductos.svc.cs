@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using AW.PRODUCTS.MODEL;
+using AW.PRODUCTS.MODEL.V2;
 
 namespace AW.PRODUCTS.BL
 {
