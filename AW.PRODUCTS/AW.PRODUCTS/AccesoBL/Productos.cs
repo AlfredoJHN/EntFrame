@@ -8,11 +8,11 @@ namespace AW.PRODUCTS.AccesoBL
 {
     public class Productos
     {
-        public IList<MODEL.V2.Product> ListarProductosPorColor(string elColor)
+        public IList<MODEL.V2.ComboDeProductos> ListarProductosPorColor(string elColor)
         {
             var elClienteWcf = new SI.WcfProductos.AWProductosClient();
 
-            var elResultado = elClienteWcf.ListarProductosPorColor(elColor);
+            var elResultado = elClienteWcf.ListarIDYNombreProductos(elColor);
             elClienteWcf.Close();
             return elResultado;
         }

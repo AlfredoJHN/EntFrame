@@ -17,11 +17,16 @@ namespace AW.PRODUCTS.BL.Repositorio
             return elResultado;
         }
 
-        public IList<MODEL.V2.Product> ListarProductosPorColor2(string elColor)
+        public IList<MODEL.V2.ComboDeProductos> ListarIDYNombreProductos(string elColor)
         {
-            var elRepositorio = new Repositorio.Productos();
-            var elResultado = elRepositorio.ListarProductosPorColor2(elColor);
-            return (elResultado);
+            var listaProductos = _contexto.Product.Where(p =>
+            p.Color.Contains(elColor));
+
+            IList<MODEL.V2.ComboDeProductos> elResultado =
+                listaProductos.Select(p => 
+                new MODEL.V2.ComboDeProductos {  idProducto = p.ProductID,
+                                                 NombreProducto = p.Name}).ToList();
+            return elResultado;
         }
 
     }

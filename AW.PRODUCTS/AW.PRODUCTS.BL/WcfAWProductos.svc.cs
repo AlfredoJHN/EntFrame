@@ -31,9 +31,18 @@ namespace AW.PRODUCTS.BL
             return composite;
         }
 
+        public IList<ComboDeProductos> ListarIDYNombreProductos(string elColor)
+        {
+            var elRepositorio = new Repositorio.Productos();
+            var elResultado = elRepositorio.ListarIDYNombreProductos(elColor);
+            return (elResultado);
+        }
+
         public IList<Product> ListarProductosPorColor(string elColor)
         {
-            throw new NotImplementedException();
+            var elRepositorio = new Repositorio.Productos();
+            var elResultado = elRepositorio.ListarProductosPorColor(elColor);
+            return (elResultado);
         }
 
         public IList<Product> ListarProductosPorNombreDeCategoria(string laCategoria)

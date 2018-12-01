@@ -4,10 +4,16 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AW.PRODUCTS.BL" />
-      <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AW.PRODUCTS.MODEL.V2" />
+      <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AW.PRODUCTS.MODEL.V2" />
+      <xsd:import schemaLocation="http://localhost:52509/WcfAWProductos.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AW.PRODUCTS.BL" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IAWProductos_ListarIDYNombreProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarIDYNombreProductos" />
+  </wsdl:message>
+  <wsdl:message name="IAWProductos_ListarIDYNombreProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarIDYNombreProductosResponse" />
+  </wsdl:message>
   <wsdl:message name="IAWProductos_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -39,6 +45,10 @@
     <wsdl:part name="parameters" element="tns:ListarProductosPorNombreDeCategoriaResponse" />
   </wsdl:message>
   <wsdl:portType name="IAWProductos">
+    <wsdl:operation name="ListarIDYNombreProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAWProductos/ListarIDYNombreProductos" message="tns:IAWProductos_ListarIDYNombreProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAWProductos/ListarIDYNombreProductosResponse" message="tns:IAWProductos_ListarIDYNombreProductos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IAWProductos/GetData" message="tns:IAWProductos_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAWProductos/GetDataResponse" message="tns:IAWProductos_GetData_OutputMessage" />
@@ -62,6 +72,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAWProductos" type="tns:IAWProductos">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarIDYNombreProductos">
+      <soap:operation soapAction="http://tempuri.org/IAWProductos/ListarIDYNombreProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IAWProductos/GetData" style="document" />
       <wsdl:input>

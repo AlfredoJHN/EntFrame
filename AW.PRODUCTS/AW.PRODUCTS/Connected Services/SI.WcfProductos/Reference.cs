@@ -78,6 +78,12 @@ namespace AW.PRODUCTS.SI.WcfProductos {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SI.WcfProductos.IAWProductos")]
     public interface IAWProductos {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAWProductos/ListarIDYNombreProductos", ReplyAction="http://tempuri.org/IAWProductos/ListarIDYNombreProductosResponse")]
+        AW.PRODUCTS.MODEL.V2.ComboDeProductos[] ListarIDYNombreProductos(string elColor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAWProductos/ListarIDYNombreProductos", ReplyAction="http://tempuri.org/IAWProductos/ListarIDYNombreProductosResponse")]
+        System.Threading.Tasks.Task<AW.PRODUCTS.MODEL.V2.ComboDeProductos[]> ListarIDYNombreProductosAsync(string elColor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAWProductos/GetData", ReplyAction="http://tempuri.org/IAWProductos/GetDataResponse")]
         string GetData(int value);
         
@@ -134,6 +140,14 @@ namespace AW.PRODUCTS.SI.WcfProductos {
         
         public AWProductosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public AW.PRODUCTS.MODEL.V2.ComboDeProductos[] ListarIDYNombreProductos(string elColor) {
+            return base.Channel.ListarIDYNombreProductos(elColor);
+        }
+        
+        public System.Threading.Tasks.Task<AW.PRODUCTS.MODEL.V2.ComboDeProductos[]> ListarIDYNombreProductosAsync(string elColor) {
+            return base.Channel.ListarIDYNombreProductosAsync(elColor);
         }
         
         public string GetData(int value) {

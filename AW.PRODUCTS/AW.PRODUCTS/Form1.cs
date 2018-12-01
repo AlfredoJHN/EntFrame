@@ -16,5 +16,23 @@ namespace AW.PRODUCTS
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var elAccesoAlBusinessLogic = new AccesoBL.Productos();
+            var listaDeProductos = elAccesoAlBusinessLogic.ListarProductosPorColor(cbColores.Text);
+            CargarComboBoxConListaDeProductos(listaDeProductos);
+        }
+
+
+        private void CargarComboBoxConListaDeProductos
+            (IList<MODEL.V2.ComboDeProductos> Lista)
+        {
+            cbProductos.Items.Clear();
+            foreach(var item in Lista)
+            {
+                cbProductos.Items.Add(item.NombreProducto);
+            }
+        }
     }
 }

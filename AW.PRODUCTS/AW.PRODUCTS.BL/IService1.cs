@@ -12,8 +12,10 @@ namespace AW.PRODUCTS.BL
     [ServiceContract] //Clase
     public interface IAWProductos
     {
+        [OperationContract]
+        IList<MODEL.V2.ComboDeProductos> ListarIDYNombreProductos(string elColor);
 
-        [OperationContract]//Métodos de la clase
+        [OperationContract]
         string GetData(int value);
 
         [OperationContract]
